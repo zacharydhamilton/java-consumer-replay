@@ -27,7 +27,7 @@ public class Producer {
         KafkaProducer<String, String> producer = new KafkaProducer<>(props);
 
         try {
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 250; i++) {
                 ProducerRecord<String, String> record = new ProducerRecord<String, String>("replay-topic", "key", String.format("this is message: %d", i));
                 producer.send(record, (metadata, exception) -> {
                    if (exception != null) {
